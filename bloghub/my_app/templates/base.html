@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,26 +8,26 @@
     <link rel="shortcut icon" type="image/png" href="" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title>manager</title>
-
     {% block head %} 
     {% endblock %}
   </head>
   <body>
     <header>
-      <div class="header-logo-container">
-        <a href="/">
-          <img src="" alt="" />
-        </a>
-      </div>
+
+      <h1>Manager</h1>
       <nav>
         <ul>
+          <li><a href="/employees">All employees</a></li>
           <li><a href="/about">About</a></li>
         </ul>
       </nav>
     </header>
-    <main>
+    <main class="container">
      {% block content %} 
      {% endblock %}
      </main>
+    <footer>
+      <p>Footer content here</p>
+    </footer>
   </body>
 </html>

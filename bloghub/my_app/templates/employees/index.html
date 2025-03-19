@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/employees/employee-index.css' %}"/>
+{% endblock %} 
+{% block content %}
+<h1>All Employees</h1>
+<hr />
+<div class="employee-list">
+  {% for employee in employees %}
+    <div class="employee-card">
+      <h2>{{ employee.name }}</h2>
+      <p>{{ employee.description }}</p>
+      <p>Age: {{ employee.age }}</p>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
