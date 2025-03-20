@@ -7,15 +7,19 @@
 
 <div class="page-header">
   <h1>{{ employee.name }}</h1>
+  <img src="{% static 'images/employee-icon.svg' %}" alt="Employee icon" />
 </div>
 
-<p>{{ employee.description }}</p>
-<p>Age: {{ employee.age }}</p>
+<div class="employee-info">
+  <p>{{ employee.description }}</p>
+  <p>Age: {{ employee.age }}</p>
+</div>
 
 <div class="tasks-container">
   <section class="tasks">
     <div class="subsection-title">
       <h2>Tasks</h2>
+      <img src="{% static 'images/task-icon.svg' %}" alt="Task icon" />
     </div>
     <table>
       <thead>
@@ -35,19 +39,6 @@
         {% endfor %}
       </tbody>
     </table>
-    {% if not employee.task_set.all.count %}
-      <div class="subsection-content">
-        <p>⚠️ {{ employee.name }} has no tasks!</p>
-      </div>
-    {% endif %}
-  </section>
-  <section class="add-task">
-    <h3>Add a Task</h3>
-    <form action="{% url 'add-task' employee.id %}" method="post" class="subsection-content" autocomplete="off">
-      {% csrf_token %} 
-      {{ task_form.as_p }}
-      <button type="submit" class="btn submit">Add Task</button>
-    </form>
   </section>
 </div>
 
