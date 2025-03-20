@@ -7,12 +7,22 @@
 <h1>All Employees</h1>
 <hr />
 <div class="employee-list">
+ <section class="card-container">
   {% for employee in employees %}
-    <div class="employee-card">
-      <h2>{{ employee.name }}</h2>
-      <p>{{ employee.description }}</p>
-      <p>Age: {{ employee.age }}</p>
+    <div class="card">
+      <a href="{% url 'employee-detail' employee.id %}">
+        <div class="card-content">
+          <h2 class="card-title">{{ employee.name }}</h2>
+          {% if employee.age > 0 %}
+          <p>A {{ employee.age }} year old employee</p>
+          {% else %}
+          <p>A young employee</p>
+          {% endif %}
+          <p><small>{{ employee.description }}</small></p>
+        </div>
+      </a>
     </div>
   {% endfor %}
+</section>
 </div>
 {% endblock %}

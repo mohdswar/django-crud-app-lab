@@ -13,12 +13,12 @@
   </head>
   <body>
     <header>
-
       <h1>Manager</h1>
       <nav>
         <ul>
-          <li><a href="/employees">All employees</a></li>
-          <li><a href="/about">About</a></li>
+          <li><a href="{% url 'employee-index' %}">All employees</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'employee-create' %}">Add a Employee</a></li>
         </ul>
       </nav>
     </header>
@@ -26,8 +26,5 @@
      {% block content %} 
      {% endblock %}
      </main>
-    <footer>
-      <p>Footer content here</p>
-    </footer>
   </body>
 </html>
